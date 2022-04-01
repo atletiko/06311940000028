@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <title>Nama - NRP</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<!-- Write your comments here -->
+
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        // Change paragraph:
+        const labels = [
+            '2007',
+            '2008',
+            '2009',
+            '2010',
+            '2011',
+            '2012',
+            '2013',
+            '2014',
+            '2015',
+            '2016',
+            '2017',
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Indoor air pollution (deaths per 100,000)',
+                backgroundColor: 'rgb(67, 214, 11)',
+                borderColor: 'rgb( 67, 214, 11 )',
+                data: [5446560016972090,
+5318364833065380,
+5166095994039230,
+49816869287245500,
+4796029026659290,
+4587203763677700,
+4415636197559550,
+4239438198803500,
+4044046642074380,
+3848003027909930,
+3649701995455000
+], // isi data
+            },{
+                label: 'Lainnya',
+                backgroundColor: 'rgb(67, 214, 11)',
+                borderColor: 'rgb( 67, 214, 11 )',
+                data: [5446560016972090,
+5318364833065380,
+5166095994039230,
+49816869287245500,
+4796029026659290,
+4587203763677700,
+4415636197559550,
+4239438198803500,
+4044046642074380,
+3848003027909930,
+3649701995455000
+], // isi data
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right',
+                        labels: {
+                            color: 'rgb(255, 99, 132)'
+                        }
+                    }
+                },
+                animations: {
+                    y: {
+                        easing: 'easeInOutElastic',
+                        from: (ctx) => {
+                            if (ctx.type === 'data') {
+                                if (ctx.mode === 'default' && !ctx.dropped) {
+                                    ctx.dropped = true;
+                                    return 0;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        };
+    </script>
+
+    <script>
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+
+
+</body>
+
+</html>
